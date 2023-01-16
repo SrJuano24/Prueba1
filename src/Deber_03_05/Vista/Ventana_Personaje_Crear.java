@@ -508,9 +508,13 @@ public class Ventana_Personaje_Crear extends JInternalFrame {
             }
 
             retorno[7] = this.jTextField5.getText();
-            this.personajeControl.crear(retorno);
-            this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "El personaje se creó  exitosamente");
+            try {
+                this.personajeControl.crear(retorno);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "El personaje se creó  exitosamente");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al crear personaje", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

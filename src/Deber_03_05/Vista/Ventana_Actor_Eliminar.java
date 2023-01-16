@@ -28,6 +28,7 @@ public class Ventana_Actor_Eliminar extends JInternalFrame {
     public Ventana_Actor_Eliminar() {
         initComponents();
         this.actorControl = new ActorControl();
+        this.actualizarTabla();
 
     }
 
@@ -193,12 +194,17 @@ public class Ventana_Actor_Eliminar extends JInternalFrame {
         if (JOptionPane.showConfirmDialog(this, "¿Eliminar el actor?", "Seleccione una opción...", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
 
             var data = this.jTextField7.getText();
-            this.actorControl.eliminar(data);
-            this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "El actor se eliminó  exitosamente");
+            try {
+                this.actorControl.eliminar(data);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "El actor se eliminó  exitosamente");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al eliminar actor", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
+
     public void actualizarTabla() {
 
         var data = new Object[this.actorControl.Listar().size()][7];

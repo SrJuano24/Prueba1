@@ -225,9 +225,13 @@ public class Ventana_Personaje_Eliminar extends JInternalFrame {
         if (JOptionPane.showConfirmDialog(this, "¿Eliminar el personaje?", "Seleccione una opción...", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
 
             var data = this.jTextField8.getText();
-            this.personajeControl.eliminar(data);
-            this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "El personaje se eliminó  exitosamente");
+            try {
+                this.personajeControl.eliminar(data);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "El personaje se eliminó  exitosamente");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al eliminar personaje", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 

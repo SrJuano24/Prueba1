@@ -361,9 +361,13 @@ public class Ventana_Actor_Crear extends JInternalFrame {
             }
             retorno[5] = this.jComboBox2.getSelectedItem().toString();
             retorno[6] = this.jTextField5.getText();
+            try {
             this.actorControl.crear(retorno);
             this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "El actor se creó  exitosamente");
+                JOptionPane.showMessageDialog(rootPane, "El actor se creó  exitosamente");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al crear actor", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

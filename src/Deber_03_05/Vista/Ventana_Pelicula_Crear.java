@@ -8,6 +8,7 @@ import Deber_03_05.Control.PeliculaControl;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -467,9 +468,14 @@ public class Ventana_Pelicula_Crear extends JInternalFrame {
             retorno[5] = this.jComboBox1.getSelectedItem().toString();
             retorno[6] = this.jTextField7.getText();
             retorno[7] = this.jTextField5.getText();
-            this.peliculaControl.crear(retorno);
-            this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "La Pelicula se creó  exitosamente");
+            try {
+                this.peliculaControl.crear(retorno);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "La Pelicula se creó  exitosamente");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error a crear la pelicula", JOptionPane.ERROR_MESSAGE);
+            }
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -419,9 +419,14 @@ public class Ventana_Actor_Modificar extends JInternalFrame {
             retorno[5] = this.jComboBox2.getSelectedItem().toString();
             retorno[6] = this.jTextField5.getText();
             retorno[7] = this.jTextField7.getText();
-            this.actorControl.modifcar(retorno);
-            this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "El actor se modificó  exitosamente");
+            try {
+                this.actorControl.modifcar(retorno);
+                this.actualizarTabla();
+              JOptionPane.showMessageDialog(rootPane, "El actor se modificó  exitosamente");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al modificar actor", JOptionPane.ERROR_MESSAGE);
+            }
+
         }
     }//GEN-LAST:event_jButton3ActionPerformed
     public void actualizarTabla() {
@@ -466,16 +471,24 @@ public class Ventana_Actor_Modificar extends JInternalFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Actor_Modificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana_Actor_Modificar.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Actor_Modificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana_Actor_Modificar.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Actor_Modificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana_Actor_Modificar.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Actor_Modificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana_Actor_Modificar.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

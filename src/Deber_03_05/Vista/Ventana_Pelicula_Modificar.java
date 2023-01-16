@@ -506,10 +506,14 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
             retorno[7] = this.jTextField5.getText();
             retorno[8] = this.jTextField4.getText();
 
-            //System.out.println(this.peliculaControl.modificar(retorno));
-            this.peliculaControl.modificar(retorno);
-            this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "La Pelicula se modificó  exitosamente");
+            try {
+                this.peliculaControl.modificar(retorno);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "La Pelicula se modificó  exitosamente");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al modificar la pelicula", JOptionPane.ERROR_MESSAGE);
+            }
+
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed

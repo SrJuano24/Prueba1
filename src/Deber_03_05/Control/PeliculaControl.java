@@ -4,8 +4,6 @@
  */
 package Deber_03_05.Control;
 
-
-
 import Deber_03_05.Modelo.Pelicula;
 import Deber_03_05.Servicio.PeliculaServiceImpl;
 import java.util.List;
@@ -24,68 +22,104 @@ public class PeliculaControl {
     }
 
     public String crear(String[] data) {
-        var retorno = "No se pudo crear la pelicula:";
+        try {
+            var retorno = "No se pudo crear la pelicula:";
 
-        var codigoPelicula = Integer.valueOf(data[0]).intValue();
-        var nombrePelicula = data[1];
-        var Genero = data[2];
-        var yearLanzamiento = Integer.valueOf(data[3]).intValue();
-        var idioma = data[4];
-        var clasificacion = data[5];
-        var duracion = Integer.valueOf(data[6]).intValue();
-        var reseña = data[7];
+            var codigoPelicula = Integer.valueOf(data[0]).intValue();
+            var nombrePelicula = data[1];
+            var Genero = data[2];
+            var yearLanzamiento = Integer.valueOf(data[3]).intValue();
+            var idioma = data[4];
+            var clasificacion = data[5];
+            var duracion = Integer.valueOf(data[6]).intValue();
+            var reseña = data[7];
 
-        if (yearLanzamiento < 1980) {
-            retorno += " Año de lanzamiento incorrecto.";
-
-        } else {
-            if (duracion < 0) {
-                retorno += " Duracion de pelicula incorrecto.";
+            if (yearLanzamiento < 1980) {
+                retorno += " Año de lanzamiento incorrecto.";
 
             } else {
-                var pelicula = new Pelicula(codigoPelicula, nombrePelicula, Genero, yearLanzamiento, idioma, clasificacion, duracion, reseña);
+                if (duracion < 0) {
+                    retorno += " Duracion de pelicula incorrecto.";
 
-                this.peliculaServiceImpl.crear(pelicula);
-                retorno = "Pelicula: " + pelicula.getNombrePelicula() + " Creada correctamente: ";
+                } else {
+                    if (this.codigoExiste(codigoPelicula)) {
+                        throw new RuntimeException("Código existe");
+                    } else {
+                        var pelicula = new Pelicula(codigoPelicula, nombrePelicula, Genero, yearLanzamiento, idioma, clasificacion, duracion, reseña);
+
+                        this.peliculaServiceImpl.crear(pelicula);
+                        retorno = "Pelicula: " + pelicula.getNombrePelicula() + " Creada correctamente: ";
+                    }
+                }
+
+            }
+
+        } catch (NumberFormatException e1) {
+            throw new NumberFormatException("Error al convertir el formato");
+        }
+        return null;
+    }
+
+    public boolean codigoExiste(int codigoActual) {
+        var retorno = false;
+        for (var pelicula : this.peliculaServiceImpl.listar()) {
+            if (pelicula.getCodigoPelicula() == codigoActual) {
+                retorno = true;
             }
         }
         return retorno;
-
     }
-     public String modificar(String[] data) {
-        var retorno = "No se pudo crear la pelicula:";
 
-        var codigoPelicula = Integer.valueOf(data[0]).intValue();
-        var nombrePelicula = data[1];
-        var Genero = data[2];
-        var yearLanzamiento = Integer.valueOf(data[3]).intValue();
-        var idioma = data[4];
-        var clasificacion = data[5];
-        var duracion = Integer.valueOf(data[6]).intValue();
-        var reseña = data[7];
-        var peliculaModificada = Integer.valueOf(data[8]).intValue();
+    public String modificar(String[] data) {
+        try {
+            var retorno = "No se pudo crear la pelicula:";
 
-        if (yearLanzamiento < 1980) {
-            retorno += " Año de lanzamiento incorrecto.";
+            var codigoPelicula = Integer.valueOf(data[0]).intValue();
+            var nombrePelicula = data[1];
+            var Genero = data[2];
+            var yearLanzamiento = Integer.valueOf(data[3]).intValue();
+            var idioma = data[4];
+            var clasificacion = data[5];
+            var duracion = Integer.valueOf(data[6]).intValue();
+            var reseña = data[7];
+            var peliculaModificada = Integer.valueOf(data[8]).intValue();
 
-        } else {
-            if (duracion < 0) {
-                retorno += " Duracion de pelicula incorrecto.";
+            if (yearLanzamiento < 1980) {
+                retorno += " Año de lanzamiento incorrecto.";
 
             } else {
-                var pelicula = new Pelicula(codigoPelicula, nombrePelicula, Genero, yearLanzamiento, idioma, clasificacion, duracion, reseña);
-                 this.peliculaServiceImpl.modificar(pelicula, peliculaModificada);
-                retorno = "Pelicula: " + pelicula.getNombrePelicula() + " Moficada correctamente: ";
+                if (duracion < 0) {
+                    retorno += " Duracion de pelicula incorrecto.";
+
+                } else {
+                    if (!this.codigoExiste(peliculaModificada)) {
+                        throw new RuntimeException("Código no existe");
+                    } else {
+                        var pelicula = new Pelicula(codigoPelicula, nombrePelicula, Genero, yearLanzamiento, idioma, clasificacion, duracion, reseña);
+                        this.peliculaServiceImpl.modificar(pelicula, peliculaModificada);
+                        retorno = "Pelicula: " + pelicula.getNombrePelicula() + " Moficada correctamente: ";
+                    }
+                }
             }
+        } catch (NumberFormatException e1) {
+            throw new NumberFormatException("Error al convertir el formato");
         }
-        return retorno;
+        return null;
 
     }
-     public void eliminar(String codigos){
-        var codigo=Integer.valueOf(codigos).intValue();
-        this.peliculaServiceImpl.eliminar(codigo);
-    
-    
+
+    public void eliminar(String codigos) {
+        try {
+            var codigo = Integer.valueOf(codigos).intValue();
+            if (this.codigoExiste(codigo)) {
+                this.peliculaServiceImpl.eliminar(codigo);
+            } else {
+                throw new RuntimeException("Código no existe");
+
+            }
+        } catch (NumberFormatException e1) {
+            throw new NumberFormatException("Error al convertir el formato");
+        }
     }
 
     public List<Pelicula> Listar() {

@@ -29,7 +29,8 @@ public class Ventana_Pelicula_Eliminar extends JInternalFrame {
      */
     public Ventana_Pelicula_Eliminar() {
         initComponents();
-        
+        this.actualizarTabla();
+
     }
 
     /**
@@ -230,10 +231,18 @@ public class Ventana_Pelicula_Eliminar extends JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (JOptionPane.showConfirmDialog(this, "¿Eliminar la Pelicula?", "Seleccione una opción...", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
             var data = this.jTextField4.getText();
-            this.peliculaControl.eliminar(data);
-            this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "La Pelicula se eliminó  exitosamente");
+            try {
+                this.actualizarTabla();
+                this.peliculaControl.eliminar(data);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "La Pelicula se eliminó  exitosamente");
+
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al eliminar la pelicula", JOptionPane.ERROR_MESSAGE);
+            }
+
         }
+
 
     }//GEN-LAST:event_jButton3ActionPerformed
 

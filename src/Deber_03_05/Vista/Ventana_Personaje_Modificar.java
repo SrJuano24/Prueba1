@@ -4,7 +4,6 @@
  */
 package Deber_03_05.Vista;
 
-
 import Deber_03_05.Control.ActorControl;
 import Deber_03_05.Control.PeliculaControl;
 import Deber_03_05.Control.PersonajeControl;
@@ -567,43 +566,48 @@ public class Ventana_Personaje_Modificar extends JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         if (JOptionPane.showConfirmDialog(this, "¿Modificar el personaje?", "Seleccione una opción...", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
 
-        var retorno = new String[9];
+            var retorno = new String[9];
 
-        retorno[0] = this.jTextField4.getText();
-        retorno[1] = this.jTextField6.getText();
-        retorno[2] = this.jComboBox1.getSelectedItem().toString();
-        retorno[3] = this.jComboBox3.getSelectedItem().toString();
-        retorno[4] = this.jTextField4.getText();
-        retorno[5] = this.jComboBox2.getSelectedItem().toString();
+            retorno[0] = this.jTextField4.getText();
+            retorno[1] = this.jTextField6.getText();
+            retorno[2] = this.jComboBox1.getSelectedItem().toString();
+            retorno[3] = this.jComboBox3.getSelectedItem().toString();
+            retorno[4] = this.jTextField4.getText();
+            retorno[5] = this.jComboBox2.getSelectedItem().toString();
 
-        if (this.jRadioButton1.isSelected()) {
-            retorno[6] = "Una estrella";
+            if (this.jRadioButton1.isSelected()) {
+                retorno[6] = "Una estrella";
 
-        } else {
-            if (this.jRadioButton2.isSelected()) {
-                retorno[6] = "Dos estrellas";
             } else {
-                if (this.jRadioButton3.isSelected()) {
-                    retorno[6] = "Tres estrellas";
+                if (this.jRadioButton2.isSelected()) {
+                    retorno[6] = "Dos estrellas";
                 } else {
-                    if (this.jRadioButton4.isSelected()) {
-                        retorno[6] = "Cuatro estrellas";
-
+                    if (this.jRadioButton3.isSelected()) {
+                        retorno[6] = "Tres estrellas";
                     } else {
-                        if (this.jRadioButton6.isSelected()) {
-                            retorno[6] = "Cinco estrellas";
+                        if (this.jRadioButton4.isSelected()) {
+                            retorno[6] = "Cuatro estrellas";
+
                         } else {
+                            if (this.jRadioButton6.isSelected()) {
+                                retorno[6] = "Cinco estrellas";
+                            } else {
+                            }
                         }
                     }
                 }
             }
-        }
 
-        retorno[7] = this.jTextField5.getText();
-        retorno[8] = this.jTextField8.getText();
-        this.personajeControl.modificar(retorno);
-         this.actualizarTabla();
-            JOptionPane.showMessageDialog(rootPane, "El personaje se mofificó  exitosamente");
+            retorno[7] = this.jTextField5.getText();
+            retorno[8] = this.jTextField8.getText();
+            try {
+                this.personajeControl.modificar(retorno);
+                this.actualizarTabla();
+                JOptionPane.showMessageDialog(rootPane, "El personaje se mofificó  exitosamente");
+            } catch (Exception e1) {
+                JOptionPane.showMessageDialog(this, e1.getMessage(), "Error al modificar personaje", JOptionPane.ERROR_MESSAGE);
+            }
+
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
