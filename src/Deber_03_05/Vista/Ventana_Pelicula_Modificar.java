@@ -4,7 +4,7 @@
  */
 package Deber_03_05.Vista;
 
-import Deber_03_05.Control.PeliculaControl;
+import Deber_03_05.Control.ParametroContol;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Ventana_Pelicula_Modificar extends JInternalFrame {
 
-    private PeliculaControl peliculaControl = new PeliculaControl();
+    private ParametroContol peliculaControl = new ParametroContol();
     private DefaultTableModel tableModel;
 
     /**
@@ -61,14 +61,12 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel11 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
 
@@ -88,7 +86,7 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("MODIFICAR PELICULA");
+        jLabel1.setText("CREAR PELICULA");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -188,16 +186,6 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
         jLabel8.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 15)); // NOI18N
         jLabel8.setText("Ingrese la duracion");
 
-        jTextField4.setColumns(5);
-        jTextField4.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 14)); // NOI18N
-        jTextField4.setToolTipText("");
-        jTextField4.setName(""); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-
         jLabel9.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 15)); // NOI18N
         jLabel9.setText("Ingrese una reseña:");
 
@@ -233,9 +221,6 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
-
-        jLabel11.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 15)); // NOI18N
-        jLabel11.setText("Datos a modificar o eliminar (Codigo)");
 
         jTextField7.setColumns(5);
         jTextField7.setFont(new java.awt.Font("Copperplate Gothic Bold", 0, 14)); // NOI18N
@@ -311,14 +296,9 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 783, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -328,9 +308,6 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24)
@@ -347,7 +324,7 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
                                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(9, 9, 9))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -370,13 +347,10 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(239, 239, 239))))
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jTextField1.getAccessibleContext().setAccessibleName("");
@@ -395,16 +369,12 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
 
@@ -436,27 +406,19 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
     public void actualizarTabla() {
 
-        var data = new Object[this.peliculaControl.Listar().size()][8];
+        var data = new Object[this.peliculaControl.Listar().size()][2];
         var encabezado = new String[8];
         for (var i = 0; i < this.peliculaControl.Listar().size(); i++) {
 
-            data[i][0] = this.peliculaControl.Listar().get(i).getCodigoPelicula();
-            data[i][1] = this.peliculaControl.Listar().get(i).getNombrePelicula();
-            data[i][2] = this.peliculaControl.Listar().get(i).getGenero();
-            data[i][3] = this.peliculaControl.Listar().get(i).getIdioma();
-            data[i][4] = this.peliculaControl.Listar().get(i).getClasificacion();
-            data[i][5] = this.peliculaControl.Listar().get(i).getDuracion();
-            data[i][6] = this.peliculaControl.Listar().get(i).getYearLanzamiento();
-            data[i][7] = this.peliculaControl.Listar().get(i).getReseña();
+            data[i][0] = this.peliculaControl.Listar().get(i).getCodigo();
+            data[i][1] = this.peliculaControl.Listar().get(i).getDescripcion();
+         
+          
 
             encabezado[0] = "Código";
             encabezado[1] = "Nombre";
-            encabezado[2] = "Genero";
-            encabezado[3] = "Idioma";
-            encabezado[4] = "Clasificacion";
-            encabezado[5] = "Duracion Horas";
-            encabezado[6] = "Año lanzamiento";
-            encabezado[7] = "Reseña";
+           
+          
         }
         jTable1.setModel(new javax.swing.table.DefaultTableModel(data, encabezado));
     }
@@ -504,10 +466,10 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
             retorno[5] = this.jComboBox1.getSelectedItem().toString();
             retorno[6] = this.jTextField7.getText();
             retorno[7] = this.jTextField5.getText();
-            retorno[8] = this.jTextField4.getText();
+     
 
             try {
-                this.peliculaControl.modificar(retorno);
+                this.peliculaControl.crear(retorno);
                 this.actualizarTabla();
                 JOptionPane.showMessageDialog(rootPane, "La Pelicula se modificó  exitosamente");
             } catch (Exception e1) {
@@ -518,9 +480,9 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -597,7 +559,6 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -615,7 +576,6 @@ public class Ventana_Pelicula_Modificar extends JInternalFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
