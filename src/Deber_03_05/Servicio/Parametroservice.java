@@ -5,21 +5,23 @@
 package Deber_03_05.Servicio;
 
 
-import Deber_03_05.Modelo.Personaje;
+import Deber_03_05.Modelo.Parametro;
+
 import java.util.List;
 
 /**
  *
  * @author Juano
  */
-public interface PersonajeService {
+public interface Parametroservice {
 
-    public abstract void crear(Personaje personaje);
+    public abstract void crear(Parametro pelicula);
 
-    public abstract List<Personaje> listar();
+ 
 
-    public void modificar(Personaje personaje, int codigo);
 
-    public void eliminar(int codigo);
+  
+
+    public abstract List<Parametro> listar();
 
 }
